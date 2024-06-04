@@ -1,3 +1,15 @@
+SELECT
+  state,  -- Select the state column
+  COUNT(DISTINCT order_id) AS num_orders  -- Count the number of distinct orders for each state
+FROM
+  `companysilo.wharehouse_orders.orders` AS orders  -- Specify the orders table with alias
+JOIN
+  `companysilo.wharehouse_orders.warehouse` AS warehouse  -- Join with the warehouse table using alias
+ON
+  orders.warehouse_id = warehouse.warehouse_id  -- Match orders with warehouses by warehouse_id
+GROUP BY
+ orders.state  -- Group the results by state
+
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -25,31 +37,29 @@
 
         <!-- Main -->
         <div id="main">
-            <!-- Existing content like picture slider -->
             <article class="thumb">
-                <a href="images/fulls/01.jpg" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
+                <a href="https://console.cloud.google.com/bigquery?ws=!1m7!1m6!12m5!1m3!1scompanyquery-425315!2sus-central1!3s4e319817-702e-4b0b-a99f-d61317d0509e!2e1" class="image"><img src="images/thumbs/01.jpg" alt="" /></a>
                 <h2>Magna feugiat lorem</h2>
                 <p>Nunc blandit nisi ligula magna sodales lectus elementum non. Integer id venenatis velit.</p>
             </article>
+            <!-- SQL Code Showcase in Slider -->
+            <article class="thumb">
+                <h2>SQL Code Showcase</h2>
+SELECT
+  state,  -- Select the state column
+  COUNT(DISTINCT order_id) AS num_orders  -- Count the number of distinct orders for each state
+FROM
+  `companysilo.wharehouse_orders.orders` AS orders  -- Specify the orders table with alias
+JOIN
+  `companysilo.wharehouse_orders.warehouse` AS warehouse  -- Join with the warehouse table using alias
+ON
+  orders.warehouse_id = warehouse.warehouse_id  -- Match orders with warehouses by warehouse_id
+GROUP BY
+ orders.state  -- Group the results by state
+                </code></pre>
+            </article>
             <!-- More articles here -->
         </div>
-
-        <!-- SQL Code Showcase Section -->
-        <section id="sql-showcase">
-            <h2>SQL Code Showcase</h2>
-            <pre><code class="language-sql">
-SELECT
-  state,
-  COUNT(DISTINCT order_id) AS num_orders
-FROM
-  `your-project-name.warehouse_orders.orders` AS orders
-JOIN
-  `your-project-name.warehouse_orders.warehouse` AS warehouse
-ON orders.warehouse_id = warehouse.warehouse_id
-GROUP BY
-  warehouse.state;
-            </code></pre>
-        </section>
 
         <!-- Footer -->
         <footer id="footer" class="panel">
@@ -71,7 +81,7 @@ GROUP BY
                         </ul>
                     </section>
                     <p class="copyright">
-                        &copy; Unttled. Design: <a href="http://html5up.net">HTML5 UP</a>.
+                        &copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.
                     </p>
                 </div>
                 <div>
